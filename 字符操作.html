@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //       给定一个字符串，如：“abaasdffggghhjjkkgfddsssss3444343”，问题如下： 
+        var str = 'abaasdffggghhjjkkgfddsssss3444343'
+
+        // 1、 字符串的长度
+        lengths = str.length
+        console.log(lengths);
+        // 2、 取出指定位置的字符，如：0,3,5,9等 
+        var str1 = str.charAt(0)
+        console.log(str1);
+        // 3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等 
+        console.log(str.indexOf('i')); //-1
+        console.log(str.indexOf('j')); //13索引
+        // 4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法 
+        const exp = new RegExp('g', 'gi')
+        console.log(str.replace(exp, 22));
+        // 5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+        console.log(str.substr(1, 5));
+        // 6、 找出以上字符串中出现次数最多的字符和出现的次数 
+        var chars = []
+        for (var i = 0; i < str.length - 1; i++) {
+            var j = str.charAt(i)
+            if (chars[j]) {
+                chars[j] += 1
+            } else {
+                chars[j] = 1
+            }
+        }
+        console.log(chars);
+        var max = 0;
+        var ch = ''
+        for (var h in chars) {
+            if (chars[h] > max) {
+                max = chars[h]
+                ch = h
+            }
+        }
+        console.log(typeof(chars));
+        console.log(ch);
+        console.log(max);
+        // 7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+        var str2 = ''
+        str3 = str.split('')
+        console.log(str3);
+        str3.forEach(item => {
+            str2 += `@${item}@;`
+        })
+        console.log(str2);
+    </script>
+</body>
+
+</html>
